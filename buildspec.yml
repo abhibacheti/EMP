@@ -13,12 +13,12 @@ phases:
       - npm run build
       - npm run test-unit
       - export BUCKET=codepipeline-eu-central
-      - aws cloudformation package --template-file template.yaml --s3-bucket $BUCKET --output-template-file outputtemplate.yaml
+      - aws cloudformation package --template-file template.yml --s3-bucket $BUCKET --output-template-file outputtemplate.yml
   post_build:
     commands:
       - echo Build completed
 artifacts:
   type: zip
     files:
-      - template.yaml
-      - outputtemplate.yaml
+      - template.yml
+      - outputtemplate.yml
