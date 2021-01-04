@@ -23,6 +23,4 @@ artifacts:
     - template.yml
     - outputtemplate.yml
     - dist/**/*
-    - request-map.js
-    - credentials.json
     - node_modules/**/*
