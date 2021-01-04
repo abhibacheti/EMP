@@ -12,13 +12,13 @@ phases:
       - echo Build started
       - npm run build
       - npm run test-unit
+      - export BUCKET=codepipeline-eu-central
+      - aws cloudformation package --template-file template.yaml --s3-bucket $BUCKET --output-template-file outputtemplate.yaml
   post_build:
     commands:
       - echo Build completed
 artifacts:
-  files:
-    - index.js
-    - dist/**/*
-    - request-map.js
-    - credentials.json
-    - node_modules/**/*
+  type: zip
+    files:
+      - template.yaml
+      - outputtemplate.yaml
