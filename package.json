@@ -46,6 +46,8 @@
   "dependencies": {
     "@types/node": "^10.17.48",
     "bunyan": "^1.8.14",
-    "aws-sdk": "^2.802.0"
+    "aws-sdk": "^2.802.0",
+    "@types/aws-lambda": "^8.10.64",
+    "aws-lambda": "^0.1.2"
   }
 }
