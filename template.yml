@@ -5,6 +5,6 @@ Resources:
   SaveExeuctionPlanFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: src/app/lambdas/
+      CodeUri: dist/lambdas/
       Handler: saveExecutionPlanLambda.handler
       Runtime: nodejs10.x

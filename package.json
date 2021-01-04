@@ -8,7 +8,6 @@
     "build": "tsc",
     "test": "npm run build && npm run test-unit",
     "test-unit": "jest --testRegex=tests/unit/.*\\.test\\.ts$ --coverage --detectOpenHandles",
-    "format": "terraform fmt -recursive ./terraform/; npm run lint -- --fix",
     "lint": "eslint \"./{src,tests}/**/*.ts\""
   },
   "repository": {

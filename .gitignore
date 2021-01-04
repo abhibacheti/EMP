@@ -19,9 +19,6 @@ node_modules/
 # IDEs
 .idea/
 
-# Terraform
-.terraform/
-
 # Allure reports directory
 allure-results
 allure-report
