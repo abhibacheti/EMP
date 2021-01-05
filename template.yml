@@ -76,7 +76,7 @@ Resources:
   EventBusSQSPolicy:
     Type: AWS::SQS::QueuePolicy
     Properties:
-      Queues: ["Ehttps://sqs.eu-central-1.amazonaws.com/203242318093/Emp-Stack-ExecutionPlanQueue-1RM6B6Y0POXTJ"]
+      Queues: ["https://sqs.eu-central-1.amazonaws.com/203242318093/Emp-Stack-ExecutionPlanQueue-1RM6B6Y0POXTJ"]
       PolicyDocument:
         Statement:
           - Action:
