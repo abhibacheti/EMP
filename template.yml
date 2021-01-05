@@ -77,7 +77,7 @@ Resources:
     Type: AWS::SQS::QueuePolicy
     Properties:
       Queues:
-        - !GetAtt ExecutionPlanQueue
+        - !Ref ExecutionPlanQueue
       PolicyDocument:
         Statement:
           - Action:
