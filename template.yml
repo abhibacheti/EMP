@@ -77,15 +77,18 @@ Resources:
     Type: AWS::SQS::QueuePolicy
     Properties:
       Queues:
-        - !Ref ExecutionPlanQueue.Arn
+        - !GetAtt ExecutionPlanQueue
       PolicyDocument:
         Statement:
           - Action:
               - "SQS:SendMessage"
               - "SQS:ReceiveMessage"
               - "SQS:GetQueueAttributes"
-            Effect: "Allow"
-            Resource: !GetAtt EventBridgeLambdaRule.Arn
             Principal:
               AWS:
                 - 'events.amazonaws.com'
+            Effect: "Allow"
+            Resource: !GetAtt ExecutionPlanQueue.Arn
+            Condition:
+              ArnEquals:
+                aws:SourceArn: !GetAtt EventBridgeLambdaRule.Arn
