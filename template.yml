@@ -76,8 +76,6 @@ Resources:
   EventBusSQSPolicy:
     Type: AWS::SQS::QueuePolicy
     Properties:
-      Queues:
-        - !Ref ExecutionPlanQueue
       PolicyDocument:
         Statement:
           - Action:
