@@ -63,3 +63,13 @@ Resources:
     Type: AWS::Events::EventBus
     Properties:
       Name: "emp-eventbus"
+  EventBridgeLambdaRule:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: "Only execution plan rule"
+      EventBusName: "emp-eventbus"
+      EventPattern: { "source": [ "data" ] }
+      State: ENABLED
+      Targets:
+        - Arn: !GetAtt ExecutionPlanQueue.Arn
+          Id: "SendToExecutionPlanQueue"
