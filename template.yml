@@ -17,7 +17,7 @@ Resources:
       CodeUri: dist/lambdas/
       Handler: saveExecutionPlanLambda.handler
       Runtime: nodejs10.x
-      Role: !GetAtt LambdaExecutionRole.Arn
+      Role: !GetAtt SaveExeuctionPlanFunctionExecutionRole.Arn
       Timeout: 60
       MemorySize: 512
   SaveExeuctionPlanFunctionExecutionRole:
