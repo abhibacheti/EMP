@@ -53,13 +53,13 @@ Resources:
                   - sqs:ChangeMessageVisibility
                 Resource: !GetAtt ExecutionPlanQueue.Arn
         - PolicyName: accessToDynamodb
-            PolicyDocument:
-              Version: '2012-10-17'
-              Statement:
-                - Effect: Allow
-                  Action:
-                    - dynamodb:*
-                  Resource: !GetAtt DynamoDBTable.Arn
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - dynamodb:*
+                Resource: !GetAtt DynamoDBTable.Arn
   LambdaFunctionEventSourceMapping:
     Type: AWS::Lambda::EventSourceMapping
     Properties:
