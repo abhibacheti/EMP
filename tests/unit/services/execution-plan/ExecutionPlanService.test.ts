@@ -2,7 +2,7 @@ import {ExecutionPlanService} from "../../../../src/app/services/execution-plan/
 import AWSMock from "aws-sdk-mock"
 import AWS, {AWSError, DynamoDB} from "aws-sdk"
 import {PutItemInput, GetItemOutput} from "aws-sdk/clients/dynamodb"
-import {ExecutionPlan} from "../../../../src/app/domain/ExecutionPlan";
+import {ExecutionPlan} from "../../../../src/app/domain/ExecutionPlan"
 import {
   ExecutionPlanServiceError,
   ExecutionPlanServicePlanNotFoundError
@@ -10,7 +10,7 @@ import {
 
 describe("ExecutionPlanService", () => {
   const response = { $response: {data: {Item: { Key: "Value" } }}}
-  AWS.config.update({region:'us-west-2'});
+  AWS.config.update({region:'us-west-2'})
   AWSMock.setSDKInstance(AWS)
   mockAwsDynamoDbClientWithOkResponse()
 
