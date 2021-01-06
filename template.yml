@@ -72,22 +72,4 @@ Resources:
       State: ENABLED
       Targets:
         - Arn: !GetAtt ExecutionPlanQueue.Arn
-          Id: "SendToExecutionPlanQueue"
-  EventBusSQSPolicy:
-    Type: AWS::SQS::QueuePolicy
-    Properties:
-      Queues: ["https://sqs.eu-central-1.amazonaws.com/203242318093/Emp-Stack-ExecutionPlanQueue-1RM6B6Y0POXTJ"]
-      PolicyDocument:
-        Statement:
-          - Action:
-              - "SQS:SendMessage"
-              - "SQS:ReceiveMessage"
-              - "SQS:GetQueueAttributes"
-            Principal:
-              AWS:
-                - 'events.amazonaws.com'
-            Effect: "Allow"
-            Resource: !GetAtt ExecutionPlanQueue.Arn
-            Condition:
-              ArnEquals:
-                aws:SourceArn: !GetAtt EventBridgeLambdaRule.Arn
+          Id: "SendToExecutionPlanQueue"g
