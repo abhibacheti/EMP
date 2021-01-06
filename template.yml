@@ -72,4 +72,4 @@ Resources:
       State: ENABLED
       Targets:
         - Arn: !GetAtt ExecutionPlanQueue.Arn
-          Id: "SendToExecutionPlanQueue"g
+          Id: "SendToExecutionPlanQueue"
