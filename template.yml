@@ -76,7 +76,7 @@ Resources:
     Properties:
       Description: "Only execution plan rule"
       EventBusName: "emp-eventbus"
-      EventPattern: { "source": [ "data" ] }
+      EventPattern: { "source": [ "emp" ], "detail-type": ["PostNL"] }
       State: ENABLED
       Targets:
         - Arn: !GetAtt ExecutionPlanQueue.Arn
