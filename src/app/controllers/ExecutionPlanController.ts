@@ -17,6 +17,10 @@ export class ExecutionPlanController {
   public getExecutionPlanById(id: string): Promise<APIGatewayProxyResult> {
     return this.executionPlanService.getById(id)
       .then(executionPlan => ApiGatewayProxyResultFactory.ok(JSON.stringify(executionPlan)))
-      .catch(_ =>  ApiGatewayProxyResultFactory.internalServerError())
+      .catch(err => {
+        console.log(JSON.stringify(err))
+
+        return ApiGatewayProxyResultFactory.internalServerError()
+      })
   }
 }
