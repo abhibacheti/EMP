@@ -97,6 +97,7 @@ Resources:
   GetExecutionPlanFunction:
     Type: 'AWS::Serverless::Function'
     Properties:
+      Role: !GetAtt SaveExeuctionPlanFunctionExecutionRole.Arn
       CodeUri: ./
       Handler: dist/lambdas/getExecutionPlanLambda.handler
       Runtime: nodejs10.x
