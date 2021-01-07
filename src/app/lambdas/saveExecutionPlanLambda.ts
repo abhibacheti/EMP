@@ -1,12 +1,8 @@
-import {EventBridgeEvent, EventBridgeHandler} from "aws-lambda"
-import {ExecutionPlan} from "../domain/ExecutionPlan"
+import {SQSEvent, SQSHandler} from "aws-lambda"
 import {Bootstrap} from "../config/Bootstrap"
 
-export type ExecutionPlanEventBridgeEvent = EventBridgeEvent<"ExecutionPlan", ExecutionPlan>
-export type ExecutionPlanEventBridgeHandler = EventBridgeHandler<"ExecutionPlan", ExecutionPlan, void>
-
 const bootstrap = new Bootstrap()
-export const handler: ExecutionPlanEventBridgeHandler = async (event: ExecutionPlanEventBridgeEvent): Promise<void> => {
-  console.log(event)
-  await bootstrap.executionPlanController.saveExecutionPlan(event.detail)
+export const handler: SQSHandler = async (event: SQSEvent): Promise<void> => {
+  console.log(event.Records[0].body)
+  await bootstrap.executionPlanController.saveExecutionPlan(JSON.parse(event.Records[0].body).detail)
 }
