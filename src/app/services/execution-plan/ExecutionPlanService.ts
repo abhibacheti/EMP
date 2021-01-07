@@ -15,6 +15,8 @@ export class ExecutionPlanService {
   }
 
   public async save(executionPlan: ExecutionPlan): Promise<void> {
+    console.log(JSON.stringify(executionPlan))
+
     return await this.documentClient.put({
       TableName: this.tableName,
       Item: {
