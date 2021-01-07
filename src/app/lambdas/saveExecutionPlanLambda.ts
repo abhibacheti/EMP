@@ -7,5 +7,6 @@ export type ExecutionPlanEventBridgeHandler = EventBridgeHandler<"ExecutionPlan"
 
 const bootstrap = new Bootstrap()
 export const handler: ExecutionPlanEventBridgeHandler = async (event: ExecutionPlanEventBridgeEvent): Promise<void> => {
+  console.log(event)
   await bootstrap.executionPlanController.saveExecutionPlan(event.detail)
 }
