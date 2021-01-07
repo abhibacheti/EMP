@@ -23,4 +23,3 @@ artifacts:
     - template.yml
     - outputtemplate.yml
     - dist/**/*
-    - node_modules/**/*
