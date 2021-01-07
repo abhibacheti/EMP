@@ -94,3 +94,24 @@ Resources:
         ReadCapacityUnits: "1"
         WriteCapacityUnits: "1"
       TableName: "EmpTable"
+  GetExecutionPlanFunction:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      CodeUri: ./
+      Handler: dist/lambdas/getExecutionPlanLambda.handler
+      Runtime: nodejs10.x
+      Timeout: 60
+      MemorySize: 512
+      Events:
+        GetExecutionPlan:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ApiGatewayApi
+            Path: /execution-plan/{id}
+            Method: GET
+  ApiGatewayApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Prod
+      Variables:
+        LambdaFunctionName: !Ref GetExecutionPlanFunction
