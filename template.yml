@@ -14,8 +14,8 @@ Resources:
   SaveExeuctionPlanFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: ./
-      Handler: dist/lambdas/saveExecutionPlanLambda.handler
+      CodeUri: dist/lambdas/
+      Handler: saveExecutionPlanLambda.handler
       Runtime: nodejs10.x
       Role: !GetAtt SaveExeuctionPlanFunctionExecutionRole.Arn
       Timeout: 60
