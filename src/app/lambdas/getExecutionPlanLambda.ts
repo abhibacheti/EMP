@@ -10,6 +10,8 @@ export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEven
   if(!event.pathParameters || !event.pathParameters.id) {
     throw new Error("Id is missing in path")
   }
+  const result =  await bootstrap.executionPlanController.getExecutionPlanById(event.pathParameters.id)
+  console.log(JSON.stringify(result))
 
-  return await bootstrap.executionPlanController.getExecutionPlanById(event.pathParameters.id)
+  return result
 }
