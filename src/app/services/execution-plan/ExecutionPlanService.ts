@@ -20,7 +20,6 @@ export class ExecutionPlanService {
     return await this.documentClient.put({
       TableName: this.tableName,
       Item: {
-        Id: executionPlan.id,
         ...executionPlan,
       },
     }).promise()
@@ -35,7 +34,7 @@ export class ExecutionPlanService {
   public async getById(id: string): Promise<ExecutionPlan> {
     return await this.documentClient.get({
       Key: {
-        Id: id
+        id
       },
       TableName: this.tableName,
     }).promise()
